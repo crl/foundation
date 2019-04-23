@@ -9,3 +9,16 @@ E:\workspaces\foundation\obj\Release\foundation.Properties.Resources.resources
 E:\workspaces\foundation\obj\Release\foundation.csproj.GenerateResource.Cache
 E:\workspaces\foundation\obj\Release\foundation.dll
 E:\workspaces\foundation\obj\Release\foundation.pdb
+E:\github\foundation\obj\Release\foundation.Properties.Resources.resources
+E:\github\foundation\obj\Release\foundation.csproj.GenerateResource.cache
+E:\github\foundation\obj\Release\foundation.csproj.CoreCompileInputs.cache
+E:\github\foundation\obj\Release\foundation.dll
+E:\github\foundation\obj\Release\foundation.pdb
+E:\github\foundation\bin\Release\foundation.dll
+E:\github\foundation\bin\Release\foundation.pdb
+E:\github\foundation\bin\Release\ICSharpCode.SharpZipLib.dll
+E:\github\foundation\bin\Release\PlayMaker.dll
+E:\github\foundation\bin\Release\UnityEditor.dll
+E:\github\foundation\bin\Release\UnityEngine.dll
+E:\github\foundation\bin\Release\UnityEngine.UI.dll
+E:\github\foundation\obj\Release\foundation.csproj.CopyComplete

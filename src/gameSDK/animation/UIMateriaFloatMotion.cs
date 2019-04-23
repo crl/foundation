@@ -1,5 +1,6 @@
 ﻿namespace gameSDK
 {
+    using foundation;
     using UnityEngine;
     using UnityEngine.UI;
 

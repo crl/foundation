@@ -69,7 +69,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="src\foundation\const\AlertResult.cs" />
+    <Compile Include="src\foundation\const\ExcelFileIDType.cs" />
     <Compile Include="src\foundation\core\CanbeReplacBehaviour.cs" />
+    <Compile Include="src\foundation\core\ReflectionTools.cs" />
     <Compile Include="src\foundation\events\MonoEventDispatcher.cs" />
     <Compile Include="src\foundation\extensions\AnimatorExtensions.cs" />
     <Compile Include="src\gameSDK\managers\AbstractApp.cs" />
@@ -118,10 +120,10 @@
     <Compile Include="src\foundation\structure\SimplexNoise.cs" />
     <Compile Include="src\foundation\tween\extends\TweenGeneral.cs" />
     <Compile Include="src\foundation\utils\LockRotate.cs" />
-    <Compile Include="src\foundation\animation\EventUIMaterialColorMotion.cs" />
-    <Compile Include="src\foundation\animation\EventUIMaterialFloatMotion.cs" />
-    <Compile Include="src\foundation\animation\ObjectMoveCyc.cs" />
-    <Compile Include="src\foundation\animation\UIMateriaFloatMotion.cs" />
+    <Compile Include="src\gameSDK\animation\EventUIMaterialColorMotion.cs" />
+    <Compile Include="src\gameSDK\animation\EventUIMaterialFloatMotion.cs" />
+    <Compile Include="src\gameSDK\animation\ObjectMoveCyc.cs" />
+    <Compile Include="src\gameSDK\animation\UIMateriaFloatMotion.cs" />
     <Compile Include="src\foundation\manager\BaseAppSetting.cs" />
     <Compile Include="src\foundation\core\attributes\ExcelIDSelecterAttribute.cs" />
     <Compile Include="src\foundation\core\attributes\MVCEventAttribute.cs" />
@@ -204,9 +206,9 @@
     <Compile Include="src\monoExt\UIParticleSystem.cs" />
     <Compile Include="src\monoExt\UpkIconView.cs" />
     <Compile Include="src\foundation\structure\amf\interface\IAMFSerializer.cs" />
-    <Compile Include="src\foundation\animation\uv\SequenceFrameWithUVAnim.cs" />
-    <Compile Include="src\foundation\animation\uv\UVAnimation.cs" />
-    <Compile Include="src\foundation\animation\uv\UVAnimationV2.cs" />
+    <Compile Include="src\gameSDK\animation\uv\SequenceFrameWithUVAnim.cs" />
+    <Compile Include="src\gameSDK\animation\uv\UVAnimation.cs" />
+    <Compile Include="src\gameSDK\animation\uv\UVAnimationV2.cs" />
     <Compile Include="src\foundation\structure\amf\interface\IAmfSetMember.cs" />
     <Compile Include="src\foundation\core\MonoCFG.cs" />
     <Compile Include="src\foundation\core\command\MonoExecuter.cs" />
