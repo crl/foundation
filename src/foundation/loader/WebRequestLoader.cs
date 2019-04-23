@@ -107,18 +107,18 @@ namespace foundation
                     update(request.downloadProgress);
                 }
 
-                yield return request.Send();
+                yield return request.SendWebRequest();
             }
 
             long responseCode = request.responseCode;
-            if (request.isError || (responseCode!=200 &&responseCode!=204) || isTimeout)
+            if (request.isNetworkError || (responseCode!=200 &&responseCode!=204) || isTimeout)
             {
                 string error="code=" + responseCode;
                 if (isTimeout)
                 {
                     error += ",error=isTimeout:" + timeout;
                 }
-                else if (request.isError)
+                else if (request.isNetworkError)
                 {
                     error += ",error=" + request.error;
                 }

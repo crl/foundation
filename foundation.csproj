@@ -105,7 +105,6 @@
     <Compile Include="src\foundation\loader\resource\LoaderXDataType.cs" />
     <Compile Include="src\foundation\loader\resource\PoolItem.cs" />
     <Compile Include="src\foundation\loader\RFLoader.cs" />
-    <Compile Include="src\foundation\loader\StreamingAssetsLoader.cs" />
     <Compile Include="src\foundation\loader\WebRequestLoader.cs" />
     <Compile Include="src\foundation\manager\AutoNetWorkListener.cs" />
     <Compile Include="src\gameSDK\managers\IReplacBehaviourManager.cs" />
@@ -182,7 +181,6 @@
     <Compile Include="src\monoExt\mapElement\TeamSpawersCFG.cs" />
     <Compile Include="src\monoExt\mapElement\TextureSet.cs" />
     <Compile Include="src\monoExt\MouseScaleEffectMono.cs" />
-    <Compile Include="src\monoExt\NpcFollowPath.cs" />
     <Compile Include="src\monoExt\PlaneShadowCaster.cs" />
     <Compile Include="src\monoExt\PolygonImage.cs" />
     <Compile Include="src\monoExt\SharedPanelBackground.cs" />
@@ -204,7 +202,6 @@
     <Compile Include="src\monoExt\textEffect\TypewriterEffect.cs" />
     <Compile Include="src\monoExt\TextureRef.cs" />
     <Compile Include="src\monoExt\UIParticleSystem.cs" />
-    <Compile Include="src\monoExt\UIPrefabSlot.cs" />
     <Compile Include="src\monoExt\UpkIconView.cs" />
     <Compile Include="src\foundation\structure\amf\interface\IAMFSerializer.cs" />
     <Compile Include="src\foundation\animation\uv\SequenceFrameWithUVAnim.cs" />

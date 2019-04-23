@@ -123,14 +123,6 @@ namespace foundation
             return sbBuilder.ToString();
         }
 
-        public static bool isWEB
-        {
-            get
-            {
-                return Application.isWebPlayer;
-            }
-        }
-
         private static string _platformFolderName;
         public static string platformFolderName
         {

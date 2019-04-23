@@ -101,8 +101,9 @@ namespace foundation
             UnityEditor.Animations.AnimatorControllerLayer layer = animatorController.layers[0];
             DoAnimatorStateMachine(layer.stateMachine, defaultAnimationClip,dic);
             return animatorController;
-#endif
+#else
             return null;
+#endif
         }
 #if UNITY_EDITOR
         private static Dictionary<string, AnimatorController> EditorAnimatorControllerMap =

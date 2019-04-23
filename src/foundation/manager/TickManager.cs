@@ -49,8 +49,9 @@ namespace foundation
             }
 #if UNITY_EDITOR
             return (float)UnityEditor.EditorApplication.timeSinceStartup;
-#endif
+#else
             return Time.realtimeSinceStartup;
+#endif
         }
 
 

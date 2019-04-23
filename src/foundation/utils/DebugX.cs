@@ -45,43 +45,41 @@ namespace foundation
                 fileName = "lingyuLog.txt";
             }
 
-            if (Application.isWebPlayer == false)
+            outLogPath = Application.persistentDataPath + "/" + fileName;
+            bool autoCreate = false;
+            if (File.Exists(outLogPath) == false)
             {
-                outLogPath = Application.persistentDataPath + "/" + fileName;
-                bool autoCreate = false;
-                if (File.Exists(outLogPath) == false)
-                {
-                    autoCreate = true;
-                }
-                else
-                {
-                    FileInfo fileInfo = new FileInfo(outLogPath);
+                autoCreate = true;
+            }
+            else
+            {
+                FileInfo fileInfo = new FileInfo(outLogPath);
 
-                    if (fileInfo.Length > 1*1024*1024)
+                if (fileInfo.Length > 1 * 1024 * 1024)
+                {
+                    try
                     {
-                        try
-                        {
-                            File.Delete(outLogPath);
-                            autoCreate = true;
-                        }
-                        catch (Exception e)
-                        {
-                            Debug.Log("删除log失败:"+e.Message);
-                        }
+                        File.Delete(outLogPath);
+                        autoCreate = true;
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Log("删除log失败:" + e.Message);
                     }
                 }
-
-                if (autoCreate)
-                {
-                    writer = File.CreateText(outLogPath);
-                    writer.WriteLine(".....................");
-                }
-                else
-                {
-                    fs = new FileStream(outLogPath, FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
-                    writer = new StreamWriter(fs);
-                }
             }
+
+            if (autoCreate)
+            {
+                writer = File.CreateText(outLogPath);
+                writer.WriteLine(".....................");
+            }
+            else
+            {
+                fs = new FileStream(outLogPath, FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
+                writer = new StreamWriter(fs);
+            }
+
         }
 
         public static void Release()
@@ -102,11 +100,6 @@ namespace foundation
 
         private static void handleException(string condition, string stackTrace, LogType type)
         {
-            if (Application.isWebPlayer)
-            {
-                return;
-            }
-           
             string msg = StringUtil.substitute("{0}:{1}", condition, stackTrace);
 
             if (UITipHandle != null)
@@ -151,7 +144,7 @@ namespace foundation
             Debug.LogError(msg);
         }
 
-        private static object writerLock=new object();
+        private static object writerLock = new object();
         private static void formatLogFile(string msg, string type)
         {
             string now = DateUtils.GetSimple(DateTime.Now);
@@ -163,7 +156,8 @@ namespace foundation
                 {
                     writer.Write(message + "\n");
                     writer.Flush();
-                }catch (Exception){}
+                }
+                catch (Exception) { }
             }
         }
     }

@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
 
 namespace foundation
 {
-    public class ResourceLoaderManager:ILoaderFactory
+    public class ResourceLoaderManager : ILoaderFactory
     {
         private VersionLoaderFactory versionLoaderFactory;
         /// <summary>
         /// 正在加载中的加载器
         /// </summary>
-        private Dictionary<string, RFLoader> _loadingPool= new Dictionary<string, RFLoader>();
+        private Dictionary<string, RFLoader> _loadingPool = new Dictionary<string, RFLoader>();
         public ResourceLoaderManager()
         {
             versionLoaderFactory = VersionLoaderFactory.GetInstance();
@@ -38,15 +37,8 @@ namespace foundation
                 else
                 {
                     fullLocalPath = PathDefine.getStreamingAssetsLocal(locaPath, true);
-                    if (Application.platform == RuntimePlatform.IPhonePlayer)
-                    {
-                        ///ios强制使用WebRequest;
-                        loader = new WebRequestLoader(fullLocalPath, parserType);
-                    }
-                    else
-                    {
-                        loader = new StreamingAssetsLoader(fullLocalPath, url, parserType);
-                    }
+                    ///ios强制使用WebRequest;
+                    loader = new WebRequestLoader(fullLocalPath, parserType);
                 }
             }
 

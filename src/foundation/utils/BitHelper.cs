@@ -85,7 +85,7 @@ namespace foundation
 
         public static Color32 ToColor32(byte[] buf, int pos)
         {
-            Color32 c;
+            Color32 c=new Color32();
             c.a = buf[pos + 0];
             c.r = buf[pos + 1];
             c.g = buf[pos + 2];
