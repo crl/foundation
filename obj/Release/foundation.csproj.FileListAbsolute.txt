@@ -1,0 +1,11 @@
+E:\workspaces\foundation\bin\Release\foundation.dll
+E:\workspaces\foundation\bin\Release\foundation.pdb
+E:\workspaces\foundation\bin\Release\ICSharpCode.SharpZipLib.dll
+E:\workspaces\foundation\bin\Release\PlayMaker.dll
+E:\workspaces\foundation\bin\Release\UnityEditor.dll
+E:\workspaces\foundation\bin\Release\UnityEngine.dll
+E:\workspaces\foundation\bin\Release\UnityEngine.UI.dll
+E:\workspaces\foundation\obj\Release\foundation.Properties.Resources.resources
+E:\workspaces\foundation\obj\Release\foundation.csproj.GenerateResource.Cache
+E:\workspaces\foundation\obj\Release\foundation.dll
+E:\workspaces\foundation\obj\Release\foundation.pdb

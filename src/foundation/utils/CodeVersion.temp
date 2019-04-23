@@ -1,0 +1,7 @@
+﻿namespace foundation
+{
+    public class CodeVersion
+    {
+        public static string version = "@version@";
+    }
+}

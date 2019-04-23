@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{255F900A-800F-444F-BA8F-A301FA329DE2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>foundation</RootNamespace>
+    <AssemblyName>foundation</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITY_EDITOR,UNITY_5_6,UNITY_5_4_OR_NEWER,UNITY_5_6_OR_NEWER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;UNITY_5_6,UNITY_5_4_OR_NEWER,UNITY_5_6_OR_NEWER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>libs\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="PlayMaker">
+      <HintPath>libs\PlayMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEditor, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="src\foundation\const\AlertResult.cs" />
+    <Compile Include="src\foundation\core\CanbeReplacBehaviour.cs" />
+    <Compile Include="src\foundation\events\MonoEventDispatcher.cs" />
+    <Compile Include="src\foundation\extensions\AnimatorExtensions.cs" />
+    <Compile Include="src\gameSDK\managers\AbstractApp.cs" />
+    <Compile Include="src\foundation\core\attributes\HotFixAttribute.cs" />
+    <Compile Include="src\foundation\core\ClayButton.cs" />
+    <Compile Include="src\foundation\core\IDisplayList.cs" />
+    <Compile Include="src\foundation\core\IEventInterester.cs" />
+    <Compile Include="src\foundation\core\INotifier.cs" />
+    <Compile Include="src\foundation\core\SkinBase.cs" />
+    <Compile Include="src\foundation\core\UILocater.cs" />
+    <Compile Include="src\foundation\db\ConfigVO.cs" />
+    <Compile Include="src\foundation\db\ConfigVODB.cs" />
+    <Compile Include="src\foundation\db\ProjectConfigVODB.cs" />
+    <Compile Include="src\foundation\extensions\DateTimeExtension.cs" />
+    <Compile Include="src\foundation\extensions\ListExtensions.cs" />
+    <Compile Include="src\foundation\loader\factory\ILoaderFactory.cs" />
+    <Compile Include="src\foundation\loader\factory\ResourceLoaderManager.cs" />
+    <Compile Include="src\foundation\loader\factory\HashSizeFile.cs" />
+    <Compile Include="src\foundation\loader\factory\VersionLoaderFactory.cs" />
+    <Compile Include="src\foundation\loader\FileStreamLoader.cs" />
+    <Compile Include="src\foundation\loader\LoadState.cs" />
+    <Compile Include="src\foundation\loader\QueueLoader.cs" />
+    <Compile Include="src\foundation\loader\queue\AutoReleasePool.cs" />
+    <Compile Include="src\foundation\loader\queue\CoreLoaderQueue.cs" />
+    <Compile Include="src\foundation\loader\queue\IAutoReleaseRef.cs" />
+    <Compile Include="src\foundation\loader\resource\AssetBundleManifestDef.cs" />
+    <Compile Include="src\foundation\loader\resource\AssetBundleResource.cs" />
+    <Compile Include="src\foundation\loader\resource\AssetResource.cs" />
+    <Compile Include="src\foundation\loader\resource\AssetsManager.cs" />
+    <Compile Include="src\foundation\loader\resource\AssetState.cs" />
+    <Compile Include="src\foundation\loader\resource\EditorAssetResource.cs" />
+    <Compile Include="src\foundation\loader\resource\InnerAssetResource.cs" />
+    <Compile Include="src\foundation\loader\resource\LoaderXDataType.cs" />
+    <Compile Include="src\foundation\loader\resource\PoolItem.cs" />
+    <Compile Include="src\foundation\loader\RFLoader.cs" />
+    <Compile Include="src\foundation\loader\StreamingAssetsLoader.cs" />
+    <Compile Include="src\foundation\loader\WebRequestLoader.cs" />
+    <Compile Include="src\foundation\manager\AutoNetWorkListener.cs" />
+    <Compile Include="src\gameSDK\managers\IReplacBehaviourManager.cs" />
+    <Compile Include="src\gameSDK\managers\part\SoundClip.cs" />
+    <Compile Include="src\gameSDK\managers\BaseSoundsManager.cs" />
+    <Compile Include="src\foundation\manager\InputManager.cs" />
+    <Compile Include="src\foundation\pool\SimpleListPool.cs" />
+    <Compile Include="src\foundation\stateMachine\AbstractState.cs" />
+    <Compile Include="src\foundation\stateMachine\IState.cs" />
+    <Compile Include="src\foundation\stateMachine\StateMachine.cs" />
+    <Compile Include="src\foundation\structure\SimplexNoise.cs" />
+    <Compile Include="src\foundation\tween\extends\TweenGeneral.cs" />
+    <Compile Include="src\foundation\utils\LockRotate.cs" />
+    <Compile Include="src\foundation\animation\EventUIMaterialColorMotion.cs" />
+    <Compile Include="src\foundation\animation\EventUIMaterialFloatMotion.cs" />
+    <Compile Include="src\foundation\animation\ObjectMoveCyc.cs" />
+    <Compile Include="src\foundation\animation\UIMateriaFloatMotion.cs" />
+    <Compile Include="src\foundation\manager\BaseAppSetting.cs" />
+    <Compile Include="src\foundation\core\attributes\ExcelIDSelecterAttribute.cs" />
+    <Compile Include="src\foundation\core\attributes\MVCEventAttribute.cs" />
+    <Compile Include="src\foundation\core\attributes\ObjectSelecterAttribute.cs" />
+    <Compile Include="src\foundation\core\attributes\ReorderableAttribute.cs" />
+    <Compile Include="src\foundation\core\attributes\SetPropertyAttribute.cs" />
+    <Compile Include="src\foundation\core\FoundationBehaviour.cs" />
+    <Compile Include="src\foundation\core\IFocus.cs" />
+    <Compile Include="src\foundation\core\SingletonT.cs" />
+    <Compile Include="src\foundation\extensions\DictionaryExtension.cs" />
+    <Compile Include="src\foundation\extensions\NavmeshExtensions.cs" />
+    <Compile Include="src\foundation\extensions\MonoBehaviourExtension.cs" />
+    <Compile Include="src\foundation\Ragdoll\LYRagdoll.cs" />
+    <Compile Include="src\foundation\Ragdoll\LYRagdollManager.cs" />
+    <Compile Include="src\foundation\animator\AnimatorStateMachineImplement.cs" />
+    <Compile Include="src\foundation\tween\extends\TweenSize.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweenSize.cs" />
+    <Compile Include="src\foundation\utils\ArrayUtil.cs" />
+    <Compile Include="src\foundation\utils\TagLayers.cs" />
+    <Compile Include="src\foundation\utils\UIUtils.cs" />
+    <Compile Include="src\foundation\weather\DayNightParms.cs" />
+    <Compile Include="src\foundation\weather\WeaterType.cs" />
+    <Compile Include="src\foundation\weather\WeatherManager.cs" />
+    <Compile Include="src\foundation\weather\WeathTypeParms.cs" />
+    <Compile Include="src\foundation\manager\MobileShadow.cs" />
+    <Compile Include="src\gameSDK\cfg\ExcelRefVO.cs" />
+    <Compile Include="src\gameSDK\cfg\IntRectange.cs" />
+    <Compile Include="src\gameSDK\cfg\LightMapData.cs" />
+    <Compile Include="src\gameSDK\cfg\LightMapRenderer.cs" />
+    <Compile Include="src\gameSDK\cfg\PrefabVO.cs" />
+    <Compile Include="src\gameSDK\cfg\PrefabVODB.cs" />
+    <Compile Include="src\gameSDK\events\ActorMoveEventX.cs" />
+    <Compile Include="src\gameSDK\events\AnimatorEventX.cs" />
+    <Compile Include="src\gameSDK\events\GoodsModelEvent.cs" />
+    <Compile Include="src\gameSDK\managers\AbstractCameraController.cs" />
+    <Compile Include="src\gameSDK\managers\BaseCameraController.cs" />
+    <Compile Include="src\gameSDK\managers\BaseRectTriggerManager.cs" />
+    <Compile Include="src\gameSDK\managers\part\CameraFollowParam.cs" />
+    <Compile Include="src\gameSDK\objects\AbstractBaseObject.cs" />
+    <Compile Include="src\monoExt\const\WaveTrigerType.cs" />
+    <Compile Include="src\monoExt\DragMonoByInput.cs" />
+    <Compile Include="src\monoExt\Empty4Raycast.cs" />
+    <Compile Include="src\monoExt\RendererVisiable.cs" />
+    <Compile Include="src\gameSDK\vo\CalculateParms.cs" />
+    <Compile Include="src\monoExt\bugFix\TrailRendererExtension.cs" />
+    <Compile Include="src\monoExt\CodeExportSetting.cs" />
+    <Compile Include="src\monoExt\CSSText.cs" />
+    <Compile Include="src\monoExt\EmbedResources.cs" />
+    <Compile Include="src\monoExt\FocusGameObject.cs" />
+    <Compile Include="src\monoExt\Follow.cs" />
+    <Compile Include="src\monoExt\mapElement\KeyVector2.cs" />
+    <Compile Include="src\monoExt\mapElement\PathsCFG.cs" />
+    <Compile Include="src\monoExt\mapElement\PlayMakerTrigger.cs" />
+    <Compile Include="src\monoExt\mapElement\PointsCFG.cs" />
+    <Compile Include="src\monoExt\mapElement\SceneCFG.cs" />
+    <Compile Include="src\monoExt\mapElement\SpriteSet.cs" />
+    <Compile Include="src\monoExt\mapElement\TeamSpawersCFG.cs" />
+    <Compile Include="src\monoExt\mapElement\TextureSet.cs" />
+    <Compile Include="src\monoExt\MouseScaleEffectMono.cs" />
+    <Compile Include="src\monoExt\NpcFollowPath.cs" />
+    <Compile Include="src\monoExt\PlaneShadowCaster.cs" />
+    <Compile Include="src\monoExt\PolygonImage.cs" />
+    <Compile Include="src\monoExt\SharedPanelBackground.cs" />
+    <Compile Include="src\foundation\db\SimpleAMFReader.cs" />
+    <Compile Include="src\monoExt\SpriteRef.cs" />
+    <Compile Include="src\monoExt\textEffect\BaseVertexEffect.cs" />
+    <Compile Include="src\monoExt\textEffect\BetterOutline.cs" />
+    <Compile Include="src\monoExt\textEffect\Bevel.cs" />
+    <Compile Include="src\monoExt\textEffect\CurveEffect.cs" />
+    <Compile Include="src\monoExt\textEffect\DepthEffect.cs" />
+    <Compile Include="src\monoExt\textEffect\Gradient.cs" />
+    <Compile Include="src\monoExt\textEffect\GradientColor.cs" />
+    <Compile Include="src\monoExt\textEffect\InnerBevel.cs" />
+    <Compile Include="src\monoExt\textEffect\InnerOutline.cs" />
+    <Compile Include="src\monoExt\textEffect\OverlayTexture.cs" />
+    <Compile Include="src\monoExt\textEffect\TextSpace.cs" />
+    <Compile Include="src\monoExt\textEffect\ToJOutline.cs" />
+    <Compile Include="src\monoExt\textEffect\ToJShadow.cs" />
+    <Compile Include="src\monoExt\textEffect\TypewriterEffect.cs" />
+    <Compile Include="src\monoExt\TextureRef.cs" />
+    <Compile Include="src\monoExt\UIParticleSystem.cs" />
+    <Compile Include="src\monoExt\UIPrefabSlot.cs" />
+    <Compile Include="src\monoExt\UpkIconView.cs" />
+    <Compile Include="src\foundation\structure\amf\interface\IAMFSerializer.cs" />
+    <Compile Include="src\foundation\animation\uv\SequenceFrameWithUVAnim.cs" />
+    <Compile Include="src\foundation\animation\uv\UVAnimation.cs" />
+    <Compile Include="src\foundation\animation\uv\UVAnimationV2.cs" />
+    <Compile Include="src\foundation\structure\amf\interface\IAmfSetMember.cs" />
+    <Compile Include="src\foundation\core\MonoCFG.cs" />
+    <Compile Include="src\foundation\core\command\MonoExecuter.cs" />
+    <Compile Include="src\foundation\core\IRayHitReceiver.cs" />
+    <Compile Include="src\foundation\core\ISceneManager.cs" />
+    <Compile Include="src\foundation\animator\AnimatorStateBehaviour.cs" />
+    <Compile Include="src\foundation\animator\AnimatorStateMachine.cs" />
+    <Compile Include="src\foundation\structure\ASDictionarySet.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UICenterOnChild.cs" />
+    <Compile Include="src\foundation\utils\DebugExtension.cs" />
+    <Compile Include="src\monoExt\AnimatorClipRef.cs" />
+    <Compile Include="src\monoExt\CullingMask.cs" />
+    <Compile Include="src\monoExt\HTLiquidSpriteSheet.cs" />
+    <Compile Include="src\monoExt\LinkButton.cs" />
+    <Compile Include="src\monoExt\Mirror.cs" />
+    <Compile Include="src\monoExt\RenderToCubemap.cs" />
+    <Compile Include="src\monoExt\SkinnedMeshCombiner.cs" />
+    <Compile Include="src\foundation\core\SortComparer.cs" />
+    <Compile Include="src\foundation\events\ASEventTrigger.cs" />
+    <Compile Include="src\foundation\structure\amf\AMFReader.cs" />
+    <Compile Include="src\foundation\structure\amf\AMFWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\as3\AMF3TypeCode.cs" />
+    <Compile Include="src\foundation\structure\amf\as3\ByteArray.cs" />
+    <Compile Include="src\foundation\structure\amf\as3\ClassDefinition.cs" />
+    <Compile Include="src\foundation\structure\amf\as3\DataInput.cs" />
+    <Compile Include="src\foundation\structure\amf\as3\DataOutput.cs" />
+    <Compile Include="src\foundation\structure\amf\ASObject.cs" />
+    <Compile Include="src\foundation\structure\amf\interface\IDataInput.cs" />
+    <Compile Include="src\foundation\structure\amf\interface\IDataOutput.cs" />
+    <Compile Include="src\foundation\structure\amf\interface\IExternalizable.cs" />
+    <Compile Include="src\foundation\structure\amf\interface\IReflectionOptimizer.cs" />
+    <Compile Include="src\foundation\structure\amf\Invocation\IInvocationCallback.cs" />
+    <Compile Include="src\foundation\structure\amf\Invocation\IInvocationManager.cs" />
+    <Compile Include="src\foundation\structure\amf\Invocation\IInvocationResultHandler.cs" />
+    <Compile Include="src\foundation\structure\amf\Invocation\InvocationHandler.cs" />
+    <Compile Include="src\foundation\structure\amf\Invocation\InvocationManager.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\CRC32.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\Deflate.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\DeflateStream.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\GZipStream.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\GZipStrUtil.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\Inflate.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\InfTree.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\Iso8859Dash1Encoding.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\ParallelDeflateOutputStream.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\Path.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\Tree.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\Zlib.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\ZlibBaseStream.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\ZlibCodec.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\ZlibConstants.cs" />
+    <Compile Include="src\foundation\structure\amf\Ionic\ZlibStream.cs" />
+    <Compile Include="src\foundation\structure\amf\io\ASObjectProxy.cs" />
+    <Compile Include="src\foundation\structure\amf\io\ExceptionProxy.cs" />
+    <Compile Include="src\foundation\structure\amf\io\ExternalizableProxy.cs" />
+    <Compile Include="src\foundation\structure\amf\io\IObjectProxy.cs" />
+    <Compile Include="src\foundation\structure\amf\io\ObjectProxy.cs" />
+    <Compile Include="src\foundation\structure\amf\io\ObjectProxyRegistry.cs" />
+    <Compile Include="src\foundation\structure\amf\ObjectFactory.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3ArrayReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3BooleanFalseReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3BooleanTrueReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3ByteArrayReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3DateTimeReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3DictionaryReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3ExternalizableReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3IntegerReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3NullReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3NumberReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\Amf3ObjectArrayReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3ObjectReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3OptimizedObjectReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3StringReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3TypedASObjectReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3VectorReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMF3XmlReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\AMFUnknownTagReader.cs" />
+    <Compile Include="src\foundation\structure\amf\reader\IAMFReader.cs" />
+    <Compile Include="src\foundation\structure\amf\utils\AmfSerializeUtils.cs" />
+    <Compile Include="src\foundation\structure\amf\utils\CollectionUtils.cs" />
+    <Compile Include="src\foundation\structure\amf\utils\ReflectionUtils.cs" />
+    <Compile Include="src\foundation\structure\amf\utils\Unreferenced.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3ArrayWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3ASObjectWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3BooleanWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3ByteArrayWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3CacheResultWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3CharWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3DateTimeWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3DoubleWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3EnumWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3GuidWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3IntWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3NameObjectCollectionWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3ObjectWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3StringWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3VectorWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\AMF3XmlDocumentWriter.cs" />
+    <Compile Include="src\foundation\structure\amf\writer\IAMFWriter.cs" />
+    <Compile Include="src\foundation\core\attributes\CMDAttribute.cs" />
+    <Compile Include="src\foundation\core\attributes\MVCAttribute.cs" />
+    <Compile Include="src\foundation\core\command\AbstractExecuter.cs" />
+    <Compile Include="src\foundation\core\command\Executer.cs" />
+    <Compile Include="src\foundation\core\command\IExecute.cs" />
+    <Compile Include="src\foundation\core\command\IParser.cs" />
+    <Compile Include="src\foundation\core\config\AbstractSection.cs" />
+    <Compile Include="src\foundation\core\config\ConfigurationUtil.cs" />
+    <Compile Include="src\foundation\core\config\IXMLBinder.cs" />
+    <Compile Include="src\foundation\core\config\ResourceSection.cs" />
+    <Compile Include="src\foundation\core\config\ServiceSection.cs" />
+    <Compile Include="src\foundation\core\IAsync.cs" />
+    <Compile Include="src\foundation\core\IClearable.cs" />
+    <Compile Include="src\foundation\core\IDataRenderer.cs" />
+    <Compile Include="src\foundation\core\IFactory.cs" />
+    <Compile Include="src\foundation\core\IInject.cs" />
+    <Compile Include="src\foundation\core\IInjectable.cs" />
+    <Compile Include="src\foundation\core\IPoolable.cs" />
+    <Compile Include="src\foundation\core\IRecycleable.cs" />
+    <Compile Include="src\foundation\core\IResizeable.cs" />
+    <Compile Include="src\foundation\core\ISkinable.cs" />
+    <Compile Include="src\foundation\core\ITextDisplay.cs" />
+    <Compile Include="src\foundation\core\ITickable.cs" />
+    <Compile Include="src\foundation\core\IUpdater.cs" />
+    <Compile Include="src\foundation\core\Singleton.cs" />
+    <Compile Include="src\foundation\manager\TickManager.cs" />
+    <Compile Include="src\foundation\core\ClassFactory.cs" />
+    <Compile Include="src\foundation\core\IDataProvider.cs" />
+    <Compile Include="src\foundation\core\IListItemRender.cs" />
+    <Compile Include="src\foundation\events\EventDispatcher.cs" />
+    <Compile Include="src\foundation\events\EventX.cs" />
+    <Compile Include="src\foundation\events\IEventDispatcher.cs" />
+    <Compile Include="src\foundation\events\ListenerBox.cs" />
+    <Compile Include="src\foundation\events\MiEventX.cs" />
+    <Compile Include="src\foundation\events\MouseEventX.cs" />
+    <Compile Include="src\foundation\events\PanelEvent.cs" />
+    <Compile Include="src\foundation\events\TouchEventX.cs" />
+    <Compile Include="src\foundation\extensions\ArrayExtensions.cs" />
+    <Compile Include="src\foundation\core\attributes\DisableAttribute.cs" />
+    <Compile Include="src\foundation\extensions\GameObjectExtensions.cs" />
+    <Compile Include="src\foundation\extensions\GeomExtension.cs" />
+    <Compile Include="src\foundation\extensions\Matrix4x4Extensions.cs" />
+    <Compile Include="src\foundation\core\attributes\PathSelecterAttribute.cs" />
+    <Compile Include="src\foundation\extensions\StringExtension.cs" />
+    <Compile Include="src\foundation\extensions\TransformExtensions.cs" />
+    <Compile Include="src\foundation\manager\CallLater.cs" />
+    <Compile Include="src\foundation\structure\numerics\BigIntegerHelper.cs" />
+    <Compile Include="src\foundation\pool\ListPool.cs" />
+    <Compile Include="src\foundation\pool\ObjectPool.cs" />
+    <Compile Include="src\foundation\structure\signals\ActionNode.cs" />
+    <Compile Include="src\foundation\structure\signals\Node.cs" />
+    <Compile Include="src\foundation\structure\signals\NodeActiveState.cs" />
+    <Compile Include="src\foundation\structure\signals\QueueAction.cs" />
+    <Compile Include="src\foundation\structure\signals\QueueHandle.cs" />
+    <Compile Include="src\foundation\structure\signals\Signal.cs" />
+    <Compile Include="src\foundation\structure\signals\SignalNode.cs" />
+    <Compile Include="src\foundation\structure\ASDictionary.cs" />
+    <Compile Include="src\foundation\structure\ASList.cs" />
+    <Compile Include="src\foundation\structure\ReorderableListBase.cs" />
+    <Compile Include="src\foundation\task\FrameTask.cs" />
+    <Compile Include="src\foundation\tween\RFTweenerTask.cs" />
+    <Compile Include="src\foundation\tween\ease\Back.cs" />
+    <Compile Include="src\foundation\tween\ease\Bounce.cs" />
+    <Compile Include="src\foundation\tween\ease\Circular.cs" />
+    <Compile Include="src\foundation\tween\ease\Cubic.cs" />
+    <Compile Include="src\foundation\tween\ease\Elastic.cs" />
+    <Compile Include="src\foundation\tween\ease\Exponential.cs" />
+    <Compile Include="src\foundation\tween\ease\Parabola.cs" />
+    <Compile Include="src\foundation\tween\ease\Quadratic.cs" />
+    <Compile Include="src\foundation\tween\ease\Quartic.cs" />
+    <Compile Include="src\foundation\tween\ease\Quintic.cs" />
+    <Compile Include="src\foundation\tween\ease\Regular.cs" />
+    <Compile Include="src\foundation\tween\ease\Sine.cs" />
+    <Compile Include="src\foundation\tween\ease\Strong.cs" />
+    <Compile Include="src\foundation\tween\extends\CRSpline.cs" />
+    <Compile Include="src\foundation\tween\extends\TweenColor.cs" />
+    <Compile Include="src\foundation\tween\extends\TweenImageSize.cs" />
+    <Compile Include="src\foundation\tween\extends\TweenMove.cs" />
+    <Compile Include="src\foundation\tween\extends\TweenMovePath.cs" />
+    <Compile Include="src\foundation\tween\extends\TweenMoveScale.cs" />
+    <Compile Include="src\foundation\tween\extends\TweenQuaternion.cs" />
+    <Compile Include="src\foundation\tween\extends\TweenScale.cs" />
+    <Compile Include="src\foundation\tween\TransformAnimator.cs" />
+    <Compile Include="src\foundation\tween\TweenTaskMotor.cs" />
+    <Compile Include="src\foundation\tween\TransformTweenTask.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweenAlpha.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweenColor.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweener.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweenPosition.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweenPositionX.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweenPositionY.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweenPositionZ.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweenRotation.cs" />
+    <Compile Include="src\foundation\tween\Tweening\UITweenScale.cs" />
+    <Compile Include="src\foundation\utils\AMF2VO.cs" />
+    <Compile Include="src\foundation\utils\AmfHelper.cs" />
+    <Compile Include="src\foundation\utils\AnimationUtils.cs" />
+    <Compile Include="src\foundation\structure\numerics\BigInteger.cs" />
+    <Compile Include="src\foundation\utils\BitHelper.cs" />
+    <Compile Include="src\foundation\utils\ColorUtils.cs" />
+    <Compile Include="src\foundation\utils\DateUtils.cs" />
+    <Compile Include="src\foundation\utils\DebugX.cs" />
+    <Compile Include="src\foundation\utils\ShaderReplacer.cs" />
+    <Compile Include="src\foundation\utils\ZipHelper.cs" />
+    <Compile Include="src\monoExt\DestroyTimed.cs" />
+    <Compile Include="src\monoExt\mapElement\BoundariesCFG.cs" />
+    <Compile Include="src\monoExt\mapElement\ElementCFG.cs" />
+    <Compile Include="src\monoExt\mapElement\SpawersCFG.cs" />
+    <Compile Include="src\monoExt\mapElement\UnitCFG.cs" />
+    <Compile Include="src\monoExt\ParticleSystemTimeScaleIgnore.cs" />
+    <Compile Include="src\monoExt\RangDrawer.cs" />
+    <Compile Include="src\foundation\utils\FileHelper.cs" />
+    <Compile Include="src\foundation\utils\FPSCounter.cs" />
+    <Compile Include="src\foundation\utils\GizmosHelper.cs" />
+    <Compile Include="src\foundation\utils\HtmlUtil.cs" />
+    <Compile Include="src\foundation\utils\Json.cs" />
+    <Compile Include="src\foundation\utils\MathExtendUtils.cs" />
+    <Compile Include="src\foundation\utils\MD5Util.cs" />
+    <Compile Include="src\foundation\utils\ObjectUtils.cs" />
+    <Compile Include="src\foundation\utils\PathDefine.cs" />
+    <Compile Include="src\foundation\utils\ReflectionAccessor.cs" />
+    <Compile Include="src\foundation\utils\RenderUtils.cs" />
+    <Compile Include="src\foundation\utils\RequestLimit.cs" />
+    <Compile Include="src\foundation\utils\RFMessage.cs" />
+    <Compile Include="src\foundation\utils\StringUtil.cs" />
+    <Compile Include="src\foundation\utils\TimerUtil.cs" />
+    <Compile Include="src\foundation\utils\VectorUtils.cs" />
+    <Compile Include="src\foundation\utils\VersionUtils.cs" />
+    <Compile Include="src\foundation\viewLimit\ViewRelation.cs" />
+    <Compile Include="src\monoExt\bugFix\ParticleScalingFixBug.cs" />
+    <Compile Include="src\monoExt\ImageText.cs" />
+    <Compile Include="src\monoExt\ImageAnimation.cs" />
+    <Compile Include="src\monoExt\ResourceVO.cs" />
+    <Compile Include="src\monoExt\SpriteSheetUV.cs" />
+    <Compile Include="src\monoExt\Hypertext.cs" />
+    <Compile Include="src\gameSDK\upk\SpriteInfoVO.cs" />
+    <Compile Include="src\gameSDK\upk\UpkAniVO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libs\UnityEditor.dll" />
+    <Content Include="libs\UnityEngine.dll" />
+    <Content Include="libs\UnityEngine.UI.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(ProjectDir)\pdb2mdb" "$(TargetPath)"
+copy "$(TargetPath)" "$(SolutionDir)Assets\Plugins\"
+copy "$(TargetDir)\$(TargetFileName).mdb" "$(SolutionDir)Assets\Plugins\"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>"$(ProjectDir)\AutoInclude" $(ProjectPath)</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

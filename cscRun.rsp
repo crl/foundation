@@ -1,0 +1,6 @@
+/r:libs\UnityEngine.dll 
+/target:library 
+/noconfig
+/nostdlib 
+/out:foundation.dll 
+/recurse:*.cs
