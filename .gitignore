@@ -2,3 +2,5 @@ libs/
 Assets/
 app/
 bin/
+obj/
+Properties/
